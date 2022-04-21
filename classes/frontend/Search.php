@@ -1,5 +1,5 @@
 <?php
-namespace WpSpotlight\Frontend;
+namespace classes\frontend;
 
 class Search {
 	public function __construct() {

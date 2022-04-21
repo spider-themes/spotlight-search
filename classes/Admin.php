@@ -1,5 +1,5 @@
 <?php
-namespace WpSpotlight;
+namespace classes;
 
 class Admin {
 	public function __construct() {

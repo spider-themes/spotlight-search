@@ -1,5 +1,5 @@
 <?php
-namespace WpSpotlight\Frontend;
+namespace classes\frontend;
 
 class Mailer {
 	public function __construct() {

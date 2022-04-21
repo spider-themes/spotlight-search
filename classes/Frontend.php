@@ -1,5 +1,5 @@
 <?php
-namespace WpSpotlight;
+namespace classes;
 
 class Frontend {
 	public function __construct() {
@@ -8,7 +8,7 @@ class Frontend {
 	}
 
 	public function contact_support() {
-		new Frontend\Mailer();
+		new \classes\frontend\Mailer();
 	}
 
 	public function render_assistant() {
@@ -75,8 +75,8 @@ class Frontend {
 
             <div class="chat-toggle">
                 <a href="#">
-                    <img class="wp-spotlight-chat" src="<?php echo WP-SPOTLIGHT_ASSETS . '/img/chat.svg' ?>" alt="<?php esc_html_e( 'Chat Icon', 'wp-spotlight' ) ?>">
-                    <img class="wp-spotlight-hide" src="<?php echo WP-SPOTLIGHT_ASSETS . '/img/close.svg' ?>" alt="<?php esc_html_e( 'Chat Icon', 'wp-spotlight' ) ?>">
+                    <img class="wp-spotlight-chat" src="<?php echo WP_SPOTLIGHT_ASSETS . '/img/chat.svg' ?>" alt="<?php esc_html_e( 'Chat Icon', 'wp-spotlight' ) ?>">
+                    <img class="wp-spotlight-hide" src="<?php echo WP_SPOTLIGHT_ASSETS . '/img/close.svg' ?>" alt="<?php esc_html_e( 'Chat Icon', 'wp-spotlight' ) ?>">
                 </a>
             </div>
 			<?php

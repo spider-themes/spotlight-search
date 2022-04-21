@@ -6,9 +6,8 @@ CSF::createSection( $prefix, array(
 			'id'         => 'wp-spotlight_post_types',
 			'type'       => 'checkbox',
 			'title'      => esc_html__('Post Types to show in search results', 'wp-spotlight'),
-			'options' => 'wp-spotlight_post_types',
+			'options' => 'wp_spotlight_post_types',
 			'default' => array( 'post' )
 		),
 	),
 ) );
-

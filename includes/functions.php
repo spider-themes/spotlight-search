@@ -12,7 +12,7 @@ function wp_spotlight_breadcrumb() {
 			$parent_forum = bbp_get_forum_parent_id( get_the_ID() );
 			?>
             <li class="breadcrumb-item">
-                <a href="<?php echo bbp_get_forums_url( '/' ) ?>"> <?php esc_html_e( 'Forums', 'wp_spotlight' ); ?> </a>
+                <a href="<?php echo bbp_get_forums_url( '/' ) ?>"> <?php esc_html_e( 'Forums', 'WPSpotlight' ); ?> </a>
             </li>
             <li class="breadcrumb-item">
                 <a href="<?php echo get_the_permalink( $parent_forum ) ?>">
@@ -26,7 +26,7 @@ function wp_spotlight_breadcrumb() {
         <li class="breadcrumb-item active">
 	            <?php
 	            if ( 'post' == get_post_type() ) {
-		            esc_html_e( 'Blog', 'wp_spotlight' );
+		            esc_html_e( 'Blog', 'WPSpotlight' );
 	            } else {
 		            echo ucwords( get_post_type() );
 	            }

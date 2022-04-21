@@ -15,18 +15,19 @@
 
 defined( 'ABSPATH' ) || exit;
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/autoload.php';
 
 /**
  * The Main Plugin Class
  */
-final class Wp_spotlight {
+final class WP_Spotlight {
 
 	const VERSION = '1.0.0';
 
 	private function __construct() {
 		$this->define_constants();
 		$this->search_ajax();
+		$this->core_includes();
 
 		register_activation_hook( __FILE__, [ $this, 'activate' ] );
 
@@ -55,11 +56,11 @@ final class Wp_spotlight {
 	 * @return void
 	 */
 	function define_constants() {
-		define( 'wp_spotlight_VERSION', self::VERSION );
-		define( 'wp_spotlight_FILE', __FILE__ );
-		define( 'wp_spotlight_DIR', __DIR__ );
-		define( 'wp_spotlight_URL', plugins_url( '', wp_spotlight_FILE ) );
-		define( 'wp_spotlight_ASSETS', wp_spotlight_URL . '/assets' );
+		define( 'WP_SPOTLIGHT_VERSION', self::VERSION );
+		define( 'WP_SPOTLIGHT_FILE', __FILE__ );
+		define( 'WP_SPOTLIGHT_DIR', __DIR__ );
+		define( 'WP_SPOTLIGHT_URL', plugins_url( '', WP_SPOTLIGHT_FILE ) );
+		define( 'WP_SPOTLIGHT_ASSETS', WP_SPOTLIGHT_URL . '/assets' );
 	}
 
 	/**
@@ -74,14 +75,19 @@ final class Wp_spotlight {
 			update_option( 'wp_spotlight_installed', time() );
 		}
 
-		update_option( 'wp_spotlight_version', wp_spotlight_VERSION );
+		update_option( 'wp_spotlight_version', WP_SPOTLIGHT_VERSION );
+	}
+
+	public function core_includes() {
+		include WP_SPOTLIGHT_DIR . '/includes/functions.php';
+		include WP_SPOTLIGHT_DIR . '/includes/csf/codestar-framework.php';
 	}
 
 	public function load_assets() {
-		wp_enqueue_style( 'wp_spotlight-assistant', wp_spotlight_ASSETS . '/css/assistant.css', wp_spotlight_VERSION );
+		wp_enqueue_style( 'wp_spotlight-assistant', WP_SPOTLIGHT_ASSETS . '/css/assistant.css', WP_SPOTLIGHT_VERSION );
 
-		wp_enqueue_script( 'wp_spotlight-assistant', wp_spotlight_ASSETS . '/js/assistant.js', array( 'jquery' ), wp_spotlight_VERSION );
-		wp_enqueue_script( 'wp_spotlight-ajax', wp_spotlight_ASSETS . '/js/ajax.js' );
+		wp_enqueue_script( 'wp_spotlight-assistant', WP_SPOTLIGHT_ASSETS . '/js/assistant.js', array( 'jquery' ), WP_SPOTLIGHT_VERSION );
+		wp_enqueue_script( 'wp_spotlight-ajax', WP_SPOTLIGHT_ASSETS . '/js/ajax.js' );
 
 		$localized_settings = [
 			'ajax_url'     => admin_url( 'admin-ajax.php' ),
@@ -93,24 +99,24 @@ final class Wp_spotlight {
 
 	public function init_plugin() {
 		if ( is_admin() ) {
-			new \WpSpotlight\Admin();
+			new \classes\Admin();
 		} else {
-			new \WpSpotlight\Frontend();
+			new \classes\Frontend();
 		}
 	}
 
 	public function search_ajax() {
-		new \WpSpotlight\Frontend\Search();
+		new \classes\frontend\Search();
 	}
 }
 
 /**
  * Function to initialize wp_spotlight plugin
  *
- * @return \Wp_spotlight
+ * @return \WP_Spotlight
  */
 function wp_spotlight() {
-	return Wp_spotlight::init();
+	return WP_Spotlight::init();
 }
 
 // Kick off the plugin
