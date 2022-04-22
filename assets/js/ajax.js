@@ -2,11 +2,11 @@
   'use strict'
 
   $(document).ready(function () {
-    let hsearch = jQuery('#helper-chat-search')
+    let hsearch = jQuery('#wp-spotlight-chat-search')
     let noresult = ''
 
     hsearch.on('keyup', function () {
-      let keyword = jQuery('#helper-chat-search').val()
+      let keyword = jQuery('#wp-spotlight-chat-search').val()
       if (keyword == '') {
         jQuery('#chatbox-search-results').html(
           '<div class="chatbox-posts" tab-data="post">\n' +
@@ -17,10 +17,10 @@
       )
       } else {
         $.ajax({
-          url: helper_search.ajax_url,
+          url: wp_spotlight_search.ajax_url,
           method: 'post',
           data: {
-            action: 'helper_search_result',
+            action: 'wp_spotlight_search_result',
             keyword: keyword,
           },
           beforeSend: function () {
@@ -34,7 +34,6 @@
             )
           },
           success: function (response) {
-            console.log(response)
             $('#chatbox-search-results').html(response)
           },
           error: function () {

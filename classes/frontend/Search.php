@@ -4,8 +4,8 @@ namespace classes\frontend;
 class Search {
 	public function __construct() {
 		// feedback
-		add_action( 'wp_ajax_wp-spotlight_search_result', [ $this, 'fetch_posts' ] );
-		add_action( 'wp_ajax_nopriv_wp-spotlight_search_result', [ $this, 'fetch_posts' ] );
+		add_action( 'wp_ajax_wp_spotlight_search_result', [ $this, 'fetch_posts' ] );
+		add_action( 'wp_ajax_nopriv_wp_spotlight_search_result', [ $this, 'fetch_posts' ] );
 	}
 
 	/**
@@ -29,9 +29,9 @@ class Search {
 					$posts->the_post();
 					?>
                     <div class="post-item">
-						<?php wp-spotlight_breadcrumb(); ?>
+						<?php wp_spotlight_breadcrumb(); ?>
                         <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                        <p><?php wp-spotlight_limit_letter( get_the_excerpt(), 80 ); ?></p>
+                        <p><?php wp_spotlight_limit_letter( get_the_excerpt(), 80 ); ?></p>
                     </div>
 				<?php
 				endwhile;

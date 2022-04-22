@@ -27,7 +27,7 @@ final class WP_Spotlight {
 	private function __construct() {
 		$this->define_constants();
 		$this->search_ajax();
-		$this->core_includes();
+		$this->spotlight_includes();
 
 		register_activation_hook( __FILE__, [ $this, 'activate' ] );
 
@@ -64,7 +64,7 @@ final class WP_Spotlight {
 	}
 
 	/**
-	 * Input plugin versino and date time on database
+	 * Input plugin version and date time on database
 	 *
 	 * @return void
 	 */
@@ -78,23 +78,33 @@ final class WP_Spotlight {
 		update_option( 'wp_spotlight_version', WP_SPOTLIGHT_VERSION );
 	}
 
-	public function core_includes() {
+	/**
+	 * Include important files necessary for this plugin
+	 *
+	 * @return void
+	 */
+	public function spotlight_includes() {
 		include WP_SPOTLIGHT_DIR . '/includes/functions.php';
 		include WP_SPOTLIGHT_DIR . '/includes/csf/codestar-framework.php';
 	}
 
+	/**
+	 * Load necessary assets required
+	 *
+	 * @return void
+	 */
 	public function load_assets() {
-		wp_enqueue_style( 'wp_spotlight-assistant', WP_SPOTLIGHT_ASSETS . '/css/assistant.css', WP_SPOTLIGHT_VERSION );
+		wp_enqueue_style( 'wp-spotlight-assistant', WP_SPOTLIGHT_ASSETS . '/css/assistant.css', WP_SPOTLIGHT_VERSION );
 
-		wp_enqueue_script( 'wp_spotlight-assistant', WP_SPOTLIGHT_ASSETS . '/js/assistant.js', array( 'jquery' ), WP_SPOTLIGHT_VERSION );
-		wp_enqueue_script( 'wp_spotlight-ajax', WP_SPOTLIGHT_ASSETS . '/js/ajax.js' );
+		wp_enqueue_script( 'wp-spotlight-assistant', WP_SPOTLIGHT_ASSETS . '/js/assistant.js', array( 'jquery' ), WP_SPOTLIGHT_VERSION );
+		wp_enqueue_script( 'wp-spotlight-ajax', WP_SPOTLIGHT_ASSETS . '/js/ajax.js' );
 
 		$localized_settings = [
 			'ajax_url'     => admin_url( 'admin-ajax.php' ),
 			'wp_spotlight_nonce' => wp_create_nonce( 'wp_spotlight_nonce' ),
 		];
 
-		wp_localize_script( 'wp_spotlight-ajax', 'wp_spotlight_search', $localized_settings );
+		wp_localize_script( 'wp-spotlight-ajax', 'wp_spotlight_search', $localized_settings );
 	}
 
 	public function init_plugin() {

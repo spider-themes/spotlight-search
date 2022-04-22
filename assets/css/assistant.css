@@ -60,11 +60,11 @@
   -o-border-radius: 50%;
 }
 
-.helper-chat{
+.wp-spotlight-chat{
   animation: icon-animation2 .3s ease;
 }
 
-.helper-hide{
+.wp-spotlight-hide{
   display: none;
   max-width: 25px;
   animation: icon-animation .3s ease;
