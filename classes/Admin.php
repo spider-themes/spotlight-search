@@ -7,6 +7,6 @@ class Admin {
 	}
 
 	public function load_admin_options() {
-		require plugin_dir_path( '/'). 'admin/settings/options/opt-config.php';
+		require plugin_dir_path( __FILE__ ). 'admin/settings/options/opt-config.php';
 	}
 }

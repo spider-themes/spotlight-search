@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap");
+
+/** Global CSS **/
+:root {
+    --brand_color: #4c4cf1;
+    --secondary_color: --secondary_color_opt;
+    --p_color: #425466;
+    --gradient_bg_color1: #fffbf2;
+    --gradient_bg_color2: #edfffd;
+    --body_bg: #fff;
+    --black_50: #ebebeb;
+    --black_100: #d6d9dc;
+    --black_150: #c8ccd0;
+    --black_200: #bbc0c4;
+    --black_300: #7d848d;
+    --black_350: #9199a1;
+    --black_400: #848d95;
+    --black_500: #6a737c;
+    --black_600: #535a60;
+    --black_700: #3c4146;
+    --black_750: #2f3337;
+    --black_800: #242729;
+    --black_900: #0c0d0e;
+    --bs_aj: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.05);
+    --bs_sm: 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px 4px rgba(0, 0, 0, 0.05),
+    0 2px 8px rgba(0, 0, 0, 0.05);
+    --bs_md: 0 1px 3px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.06),
+    0 3px 8px rgba(0, 0, 0, 0.09);
+    --bs_lg: 0 1px 4px rgba(0, 0, 0, 0.09), 0 3px 8px rgba(0, 0, 0, 0.09),
+    0 4px 13px rgba(0, 0, 0, 0.13);
+}
+
+/*------- Popup Search --------*/
+#spotlight_popup_search_wrapper {
+    display: none;
+    top: 0;
+    z-index: 9999999;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    position: fixed;
+    background: #7d7be947;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+#spotlight_popup_search {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    max-height: 90%;
+    overflow: hidden;
+    width: 50%;
+    padding: 0;
+    background: #fff;
+    border-radius: 10px;
+    right: 0;
+    margin: auto;
+}
+
+#spotlight_popup_search .chatbox-header {
+    background-color: transparent;
+    padding: 10px 15px;
+    border-bottom: 1px solid rgba(119, 122, 175, .1);
+    margin-right: 20px;
+}
+
+.chatbox-posts.popup-search-posts .post-item {
+    background: #fdfdfd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.chatbox-posts.popup-search-posts .post-item:last-child {
+    margin-bottom: 0;
+}
+
+.chatbox-posts.popup-search-posts .post-item.keyword-alert {
+    border: 2px solid var(--brand_color);
+    border-left: 2px solid var(--brand_color);
+}
+
+#spotlight_popup_search .chatbox-posts {
+    margin-top: 0;
+    width: 100%;
+    height: auto;
+}
+
+#spotlight_popup_search .chatbox-body {
+    padding: 0 16px 0;
+    background-color: transparent;
+}
+
+#spotlight_popup_search.has-global-result .chatbox-body {
+    padding: 16px 16px;
+}
+
+#spotlight_popup_search .chatbox-posts .post-item {
+    text-align: left;
+    border: 1px solid #f7f7f7;
+    box-shadow: none;
+    border-radius: 5px;
+}
+
+#spotlight_popup_search .chatbox-posts .post-item h2 {
+    font-size: 16px;
+    margin-top: 3px;
+    margin-bottom: 8px;
+}
+
+#spotlight_popup_search .chatbox-posts .post-item h2 a {
+    color: var(--black_700);
+    text-align: left;
+    font-size: inherit;
+    text-decoration: none;
+}
+
+#spotlight_popup_search .chatbox-posts .post-item ol {
+    list-style: none;
+    margin: 0;
+}
+
+#spotlight_popup_search .chatbox-posts .post-item ol li {
+    margin: 0;
+}
+
+#spotlight_popup_search .chatbox-header .search-box {
+    box-shadow: none;
+    position: relative;
+    padding-left: 20px;
+    display: inline-block;
+    width: 100%;
+}
+
+#spotlight_popup_search .chatbox-header .search-box:before {
+    background-size: contain;
+    background-image: url('../img/search.png');
+    clear: both;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 0;
+    height: 19px;
+    display: block;
+    width: 25px;
+    content: '';
+    background-repeat: no-repeat;
+}
+
+#spotlight_popup_search .chatbox-header .search-box input {
+    margin-top: 0;
+    font-size: 22px;
+    padding-right: 70px;
+    border: none;
+    width: 100%;
+}
+
+#spotlight_popup_search .chatbox-header .search-box input::placeholder {
+    color: rgb(150 152 195);
+}
+
+#spotlight_popup_search .chatbox-header .search-box input:focus {
+    border: none;
+    box-shadow: none;
+}
+
+#spotlight_popup_search .chatbox-header .search-box .cancel-search-box {
+    right: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 0;
+    height: 0;
+    display: block;
+    content: '';
+    cursor: pointer;
+    color: #777aaf;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+#spotlight_popup_search .chatbox-header .search-box .cancel-search-box:before {
+    left: -13px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    line-height: 0;
+    display: block;
+    content: '';
+    color: #777aaf;
+    font-size: 16px;
+    font-weight: 400;
+    height: 40px;
+    width: 1px;
+    background: #777aaf40;
+    opacity: .35;
+    cursor: default;
+}
+
+.chatbox-posts.popup-search-posts .post-item:hover {
+    background: var(--brand_color);
+    color: white
+}
+
+#chatbox-search-results-global .post-item.keyword-alert {
+    margin: 15px 0 15px 0;
+    padding: 10px;
+}
+
+#chatbox-search-results-global .post-item p {
+    margin: 5px 0;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--black_500);
+}
+
+#spotlight_popup_search .chatbox-posts .post-item:hover p,
+#spotlight_popup_search .chatbox-posts .post-item:hover h2 a {
+    color: white;
+}
+
+.chatbox-posts.popup-search-posts .post-item.keyword-danger:hover p,
+.chatbox-posts.popup-search-posts .post-item.keyword-alert:hover p,
+#chatbox-search-results-global .post-item.keyword-danger:hover,
+#chatbox-search-results-global .post-item.keyword-alert:hover,
+#chatbox-search-results-global .post-item.keyword-danger:hover p,
+#spotlight_popup_search .chatbox-posts .post-item.keyword-alert:hover p {
+    background: #fff;
+    color: black;
+}
+
+@media screen and ( max-width: 991px ) {
+    #spotlight_popup_search {
+        width: 95%
+    }
+}
