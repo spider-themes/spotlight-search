@@ -33,7 +33,6 @@ final class WP_Spotlight {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'load_assets' ], 11 );
 
-
 		// popup search
 		add_action( 'wp_enqueue_scripts', [ $this, 'popup_search_assets' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'popup_search_assets' ] );
@@ -47,7 +46,7 @@ final class WP_Spotlight {
 	 *
 	 * @return /Wp_spotlight
 	 */
-	static function init() {
+	public static function init() {
 		static $instance = false;
 
 		if ( ! $instance ) {
@@ -61,7 +60,7 @@ final class WP_Spotlight {
 	 * Defining required plugin constants
 	 * @return void
 	 */
-	function define_constants() {
+	public function define_constants() {
 		define( 'WP_SPOTLIGHT_VERSION', self::VERSION );
 		define( 'WP_SPOTLIGHT_FILE', __FILE__ );
 		define( 'WP_SPOTLIGHT_DIR', __DIR__ );
@@ -92,6 +91,7 @@ final class WP_Spotlight {
 	public function spotlight_includes() {
 		include WP_SPOTLIGHT_DIR . '/includes/functions.php';
 		include WP_SPOTLIGHT_DIR . '/includes/csf/codestar-framework.php';
+		include WP_SPOTLIGHT_DIR . '/includes/spotlight_widget.php';
 	}
 
 	/**
@@ -102,32 +102,32 @@ final class WP_Spotlight {
 	public function load_assets() {
 		wp_enqueue_style( 'wp-spotlight-assistant', WP_SPOTLIGHT_ASSETS . '/css/assistant.css', WP_SPOTLIGHT_VERSION );
 
-		wp_enqueue_script( 'wp-spotlight-assistant', WP_SPOTLIGHT_ASSETS . '/js/assistant.js', array( 'jquery' ), WP_SPOTLIGHT_VERSION );
+		wp_enqueue_script( 'wp-spotlightf-assistant', WP_SPOTLIGHT_ASSETS . '/js/assistant.js', [ 'jquery' ], WP_SPOTLIGHT_VERSION );
 
 		wp_enqueue_script( 'wp-spotlight-ajax', WP_SPOTLIGHT_ASSETS . '/js/ajax.js' );
+
 		$localized_settings = [
-			'ajax_url'     => admin_url( 'admin-ajax.php' ),
+			'ajax_url'           => admin_url( 'admin-ajax.php' ),
 			'wp_spotlight_nonce' => wp_create_nonce( 'wp_spotlight_nonce' ),
 		];
-		wp_localize_script( 'wp-spotlight-ajax', 'wp_spotlight_search', $localized_settings );
 
+		wp_localize_script( 'wp-spotlight-ajax', 'wp_spotlight_search', $localized_settings );
 	}
 
 	/**
 	 * Load popup search scripts
 	 */
-	public function popup_search_assets(){
+	public function popup_search_assets() {
 		wp_enqueue_style( 'wp-spotlight-popup-search', WP_SPOTLIGHT_ASSETS . '/popup-search/popup-search.css', WP_SPOTLIGHT_VERSION );
-		wp_enqueue_script( 'wp-spotlight-popup-search', WP_SPOTLIGHT_ASSETS . '/popup-search/popup-search.js', array( 'jquery' ), WP_SPOTLIGHT_VERSION );
+		wp_enqueue_script( 'wp-spotlight-popup-search', WP_SPOTLIGHT_ASSETS . '/popup-search/popup-search.js', [ 'jquery' ], WP_SPOTLIGHT_VERSION, true );
+		wp_enqueue_script( 'wp-spotlight-ajax-global', WP_SPOTLIGHT_ASSETS . '/js/global-ajax.js', [], true );
 
-
-		wp_enqueue_script( 'wp-spotlight-ajax-global', WP_SPOTLIGHT_ASSETS . '/js/global-ajax.js' );
 		$localized_settingsd = [
-			'global_ajax_url'     => admin_url( 'admin-ajax.php' ),
+			'global_ajax_url'           => admin_url( 'admin-ajax.php' ),
 			'wp_spotlight_nonce_global' => wp_create_nonce( 'wp_spotlight_nonce_global' ),
 		];
-		wp_localize_script( 'wp-spotlight-ajax-global', 'wp_spotlight_search_global', $localized_settingsd );
 
+		wp_localize_script( 'wp-spotlight-ajax-global', 'wp_spotlight_search_global', $localized_settingsd );
 	}
 
 	public function init_plugin() {

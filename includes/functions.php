@@ -6,33 +6,33 @@
  */
 function wp_spotlight_breadcrumb() {
 	?>
-    <ol class="chatbox-breadcrumb <?php echo get_post_type( get_the_ID() ) ?>">
+	<ol class="chatbox-breadcrumb <?php echo get_post_type( get_the_ID() ); ?>">
 		<?php
 		if ( 'topic' == get_post_type() || 'reply' == get_post_type() ) {
 			$parent_forum = bbp_get_forum_parent_id( get_the_ID() );
 			?>
-            <li class="breadcrumb-item">
-                <a href="<?php echo bbp_get_forums_url( '/' ) ?>"> <?php esc_html_e( 'Forums', 'WPSpotlight' ); ?> </a>
-            </li>
-            <li class="breadcrumb-item">
-                <a href="<?php echo get_the_permalink( $parent_forum ) ?>">
+			<li class="breadcrumb-item">
+				<a href="<?php echo bbp_get_forums_url( '/' ); ?>"> <?php esc_html_e( 'Forums', 'WPSpotlight' ); ?> </a>
+			</li>
+			<li class="breadcrumb-item">
+				<a href="<?php echo get_the_permalink( $parent_forum ); ?>">
 					<?php bbp_forum_title( $parent_forum ); ?>
-                </a>
-            </li>
+				</a>
+			</li>
 			<?php
 		}
 		?>
 
-        <li class="breadcrumb-item active">
-	            <?php
-	            if ( 'post' == get_post_type() ) {
-		            esc_html_e( 'Blog', 'WPSpotlight' );
-	            } else {
-		            echo ucwords( get_post_type() );
-	            }
-	            ?>
-        </li>
-    </ol>
+		<li class="breadcrumb-item active">
+				<?php
+				if ( 'post' == get_post_type() ) {
+					esc_html_e( 'Blog', 'WPSpotlight' );
+				} else {
+					echo ucwords( get_post_type() );
+				}
+				?>
+		</li>
+	</ol>
 	<?php
 }
 
@@ -52,11 +52,13 @@ function wp_spotlight_limit_letter( $string, $limit_length, $suffix = '...' ) {
 }
 
 function wp_spotlight_post_types() {
-	$post_types = get_post_types( array(
-		'public' => true,
-	) );
+	$post_types = get_post_types(
+		[
+			'public' => true,
+		]
+	);
 
-	$post_types = array_diff( $post_types, array( 'attachment', 'page' ) );
+	$post_types = array_diff( $post_types, [ 'attachment', 'page' ] );
 
 	return $post_types;
 }

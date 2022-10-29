@@ -562,13 +562,13 @@
  */
 @media only screen and (max-width: 1200px) {
   .csf-metabox .csf-field .csf-fieldset {
-    margin-left: 0;
+	margin-left: 0;
   }
 }
 @media only screen and (max-width: 782px) {
   .csf .csf-fieldset,
   .csf .csf-content {
-    margin-right: 0;
+	margin-right: 0;
   }
 }
 /**

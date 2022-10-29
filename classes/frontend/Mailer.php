@@ -9,7 +9,7 @@ class Mailer {
 	function feedback_mail() {
 		$opt = get_option( 'wp-spotlight_opt' );
 
-		$admin_email = ! empty ( $opt['wp-spotlight_contact_mail'] ) ? $opt['wp-spotlight_contact_mail'] : '';
+		$admin_email = ! empty( $opt['wp-spotlight_contact_mail'] ) ? $opt['wp-spotlight_contact_mail'] : '';
 
 		if ( isset( $_POST['wp-spotlight-form-submit'] ) ) {
 			$author  = ! empty( $_POST['wp-spotlight-name'] ) ? sanitize_text_field( $_POST['wp-spotlight-name'] ) : '';
@@ -41,14 +41,14 @@ class Mailer {
 			$email_to = $admin_email;
 			$subject  = sprintf( __( '[%1$s] New Wp-spotlight Query: "%2$s"', 'wp-spotlight' ), $blogname, $subject );
 
-			$email_body = sprintf( __( 'New Message From Wp-spotlight Plugin. Source: %s', 'wp-spotlight' ), $wp_email ) . "\r\n";
+			$email_body  = sprintf( __( 'New Message From Wp-spotlight Plugin. Source: %s', 'wp-spotlight' ), $wp_email ) . "\r\n";
 			$email_body .= sprintf( __( 'From: %s', 'wp-spotlight' ), $email ) . "\r\n";
 			$email_body .= sprintf( __( 'Message: %s', 'wp-spotlight' ), "\r\n" . $message ) . "\r\n\r\n";
 
 			$from     = "From: \"${author}\" <${wp_email}>";
 			$reply_to = "Reply-To: \"${email}\" <${email}>";
 
-			$message_headers = "${from}\n" . 'Content-Type: text/plain; charset ="' . get_option( 'blog_charset' ) . "\"\n";
+			$message_headers  = "${from}\n" . 'Content-Type: text/plain; charset ="' . get_option( 'blog_charset' ) . "\"\n";
 			$message_headers .= $reply_to . "\n";
 
 			wp_mail( $email_to, wp_specialchars_decode( $subject ), $email_body, $message_headers );
