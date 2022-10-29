@@ -15,8 +15,6 @@
 
 defined( 'ABSPATH' ) || exit;
 
-require_once __DIR__ . '/autoload.php';
-
 /**
  * The Main Plugin Class
  */
@@ -92,6 +90,7 @@ final class WP_Spotlight {
 		include WP_SPOTLIGHT_DIR . '/includes/functions.php';
 		include WP_SPOTLIGHT_DIR . '/includes/csf/codestar-framework.php';
 		include WP_SPOTLIGHT_DIR . '/includes/spotlight_widget.php';
+
 	}
 
 	/**
@@ -132,14 +131,23 @@ final class WP_Spotlight {
 
 	public function init_plugin() {
 		if ( is_admin() ) {
+			include WP_SPOTLIGHT_DIR . '/classes/Admin.php';
+
 			new \classes\Admin();
 		} else {
+			include WP_SPOTLIGHT_DIR . '/classes/Frontend.php';
+
 			new \classes\Frontend();
 		}
+
+		include WP_SPOTLIGHT_DIR . '/classes/Globals.php';
 		new \classes\Globals();
 	}
 
 	public function search_ajax() {
+		include WP_SPOTLIGHT_DIR . '/classes/frontend/Search.php';
+		include WP_SPOTLIGHT_DIR . '/classes/frontend/Global_Search.php';
+
 		new \classes\frontend\Search();
 		new \classes\frontend\Global_Search();
 	}

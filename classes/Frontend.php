@@ -8,6 +8,7 @@ class Frontend {
 	}
 
 	public function contact_support() {
+		include WP_SPOTLIGHT_DIR . '/classes/frontend/Mailer.php';
 		new \classes\frontend\Mailer();
 	}
 

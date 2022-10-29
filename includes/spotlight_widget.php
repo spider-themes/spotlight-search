@@ -46,7 +46,6 @@ class WP_Spotlight_Widget extends WP_Widget {
 		<form action="<?php echo home_url( '/' ); ?>" method="get">
 			<div id="wp-shoplight-widget-search">
 				<input type="text" name="s" id="search" placeholder="<?php esc_attr_e( 'Click to open popup', 'wp-spotlight' ); ?>" value="<?php the_search_query(); ?>" />
-				<!-- <input type="submit" alt="Search" value="Search"/> -->
 			</div>
 		</form>
 		<?php
