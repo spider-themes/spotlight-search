@@ -1,22 +1,26 @@
-=== Wp-spotlight - Assistant Plugin for WordPress ===
-Contributors: spiderdevs
+=== WP-Spotlight - Assistant Plugin for WordPress ===
+Contributors: spiderdevs,arafatjamil01, mdjwel, delweratjk
 Version: 1.0.0
 Requires at least: 5.0
-Tested up to: 5.9.2
+Tested up to: 6.1
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
-This plugin will show up an icon on the right bottom corner of the webpage. Clicking the icon will show up assistant.
-Users will be able to search from the assistant search bar. The other option is to contact to users, a simple
-contact form is created.
+WP-Spotlight is a WordPress Search plugin, inspired from Spotlight from Apple computers. WP-Spotlight opens up the search bar, as soon as you type Ctrl + '/' on your keyboard. You can input your keyword and it will start searching right away. The plugin is AJAX powered, that means you will see results without loading the page again.
+
+Also, we have added an assistant at the right bottom corner of the webpage. Clicking the assistant icon will show up assistant.
+Users will be able to search from the assistant search bar. The other option is to contact to the website admin or any other person whose email can be set from settings options.
 
 ### 🌟 Features ###
-- Click to open a search bar and search results
-- Built in AJAX Search bar
+- Pop-up search box on typing Ctrl+ '/'
+- AJAX powered popup search box
+- Click bottom icon to open search results
+- Built in AJAX bottom search bar
 - Use plugin settings to set different post types
 - Easy to use contact form
+- Customize which post types to show results to
 - Custom receiver email address
 
 == Installation ==
@@ -27,11 +31,11 @@ contact form is created.
 
 = Modern Way: =
 1. Go to the WordPress Dashboard "Add New Plugin" section.
-2. Search For "Wp-spotlight".
+2. Search For "Wp-Spotlight".
 3. Install, then Activate it.
 
 = Old Way: =
-1. Upload `Wp-spotlight` to the `/wp-content/plugins/` directory
+1. Upload `WP-Spotlight` to the `/wp-content/plugins/` directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
 
 = PHP Notice =

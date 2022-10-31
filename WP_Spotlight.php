@@ -5,7 +5,7 @@
  * Description:       This plugin will show up an icon on the right bottom corner of the webpage. Clicking the icon will show up assistant. Users will be able to search from the assistant search bar.
  * Version:           1.0.0
  * Requires at least: 5.2
- * Requires PHP:      7.0
+ * Requires PHP:      7.4
  * Author:            spiderDevs
  * Author URI:        https://profiles.wordpress.org/spiderdevs/
  * Text Domain:       wp-spotlight
@@ -163,4 +163,8 @@ function wp_spotlight() {
 }
 
 // Kick off the plugin
-wp_spotlight();
+wp_spotlight();   
+
+//TODO: Option to disable post type from front end.
+//TODO: SHow display names for post type
+//TODO: Search shortcut enable/disable

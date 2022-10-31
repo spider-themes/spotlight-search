@@ -47,6 +47,7 @@
 	0% {
 		transform: rotate(-30deg);
 	}
+
 	100% {
 		transform: rotate(0deg);
 	}
@@ -56,6 +57,7 @@
 	0% {
 		transform: rotate(30deg);
 	}
+
 	100% {
 		transform: rotate(0deg);
 	}
@@ -348,7 +350,7 @@
 	color: var(--brand_color);
 }
 
-.chatbox-breadcrumb .breadcrumb-item + .breadcrumb-item:before {
+.chatbox-breadcrumb .breadcrumb-item+.breadcrumb-item:before {
 	content: url("../img/arrow-right.svg");
 	color: #b7b9be;
 	padding-right: 3px;
@@ -376,6 +378,38 @@
 }
 
 /* ------ Widget CSS ------ */
-#wp-shoplight-widget-search{
+#wp-spotlight-widget-search {
 	display: flex;
+	background-color: #fff;
+	padding: 10px 10px;
+	gap: 10px;
+	line-height: 40px;
+}
+
+#wp-spotlight-widget-search input {
+	background: #fff;
+	border: 1px solid #e1e1e1;
+	border-radius: 4px;
+	line-height: 1.2em;
+	width: 90%;
+}
+
+#wp-spotlight-widget-search #cancel-spotlight-search {
+	border: 1px solid #e1e1e1;
+	color: #32373c;
+	background: #fff;
+}
+
+#wp-spotlight-widget-result .chatbox-posts {
+	margin-top: 0;
+}
+
+#wp-spotlight-widget-result .chatbox-posts .post-item:hover {
+	color: #fff;
+}
+
+#wp-spotlight-widget-result .chatbox-posts .post-item:hover h2 a,
+#wp-spotlight-widget-result .chatbox-posts .post-item:hover ol li,
+#wp-spotlight-widget-result .chatbox-posts .post-item:hover p{
+	color: #fff !important;
 }
