@@ -88,7 +88,7 @@ final class WP_Spotlight {
 	 */
 	public function spotlight_includes() {
 		include WP_SPOTLIGHT_DIR . '/includes/functions.php';
-		include WP_SPOTLIGHT_DIR . '/includes/csf/codestar-framework.php';
+		include WP_SPOTLIGHT_DIR . '/includes/codestar-framework/codestar-framework.php';
 		include WP_SPOTLIGHT_DIR . '/includes/spotlight_widget.php';
 
 	}
@@ -99,6 +99,8 @@ final class WP_Spotlight {
 	 * @return void
 	 */
 	public function load_assets() {
+		wp_enqueue_style( 'dashicons' );
+
 		wp_enqueue_style( 'wp-spotlight-assistant', WP_SPOTLIGHT_ASSETS . '/css/assistant.css', WP_SPOTLIGHT_VERSION );
 
 		wp_enqueue_script( 'wp-spotlightf-assistant', WP_SPOTLIGHT_ASSETS . '/js/assistant.js', [ 'jquery' ], WP_SPOTLIGHT_VERSION );
@@ -117,8 +119,13 @@ final class WP_Spotlight {
 	 * Load popup search scripts
 	 */
 	public function popup_search_assets() {
-		wp_enqueue_style( 'wp-spotlight-popup-search', WP_SPOTLIGHT_ASSETS . '/popup-search/popup-search.css', WP_SPOTLIGHT_VERSION );
-		wp_enqueue_script( 'wp-spotlight-popup-search', WP_SPOTLIGHT_ASSETS . '/popup-search/popup-search.js', [ 'jquery' ], WP_SPOTLIGHT_VERSION, true );
+		$opt             = get_option( 'wp-spotlight_opt' );
+		$is_popup_search = $opt['is_popup_search'] ?? true;
+
+		if ( $is_popup_search ) {
+			wp_enqueue_style( 'wp-spotlight-popup-search', WP_SPOTLIGHT_ASSETS . '/popup-search/popup-search.css', WP_SPOTLIGHT_VERSION );
+			wp_enqueue_script( 'wp-spotlight-popup-search', WP_SPOTLIGHT_ASSETS . '/popup-search/popup-search.js', [ 'jquery' ], WP_SPOTLIGHT_VERSION, true );
+		}
 		wp_enqueue_script( 'wp-spotlight-ajax-global', WP_SPOTLIGHT_ASSETS . '/js/global-ajax.js', [], true );
 
 		$localized_settingsd = [
@@ -163,8 +170,7 @@ function wp_spotlight() {
 }
 
 // Kick off the plugin
-wp_spotlight();   
+wp_spotlight();
 
 //TODO: Option to disable post type from front end.
 //TODO: SHow display names for post type
-//TODO: Search shortcut enable/disable

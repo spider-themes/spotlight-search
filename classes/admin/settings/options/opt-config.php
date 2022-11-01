@@ -9,18 +9,16 @@ if ( class_exists( 'CSF' ) ) {
 		[
 
 			// framework title
-			'framework_title'         => 'Wp-spotlight',
+			'framework_title'         => __( 'WP-Spotlight', 'wp-spotlight' ),
 			'framework_class'         => '',
 
 			// menu settings
-			'menu_title'              => esc_html__( 'Wp-spotlight', 'wp-spotlight' ),
+			'menu_title'              => esc_html__( 'Settings', 'wp-spotlight' ),
 			'menu_slug'               => 'wp-spotlight',
-			'menu_type'               => 'menu',
-			'menu_capability'         => 'manage_options',
-			'menu_icon'               => 'dashicons-screenoptions',
+			'menu_type'               => 'submenu',
 			'menu_position'           => null,
 			'menu_hidden'             => false,
-			'menu_parent'             => '',
+			'menu_parent'             => 'wp-spotlight',
 
 			// menu extras
 			'show_bar_menu'           => true,

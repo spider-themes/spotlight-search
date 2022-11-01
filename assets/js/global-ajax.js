@@ -64,15 +64,7 @@
 				}
 			);
 
-
-
 			// Widgets.
-			$('#cancel-spotlight-search').click(
-				function (e) {
-					e.preventDefault();
-					$('#wp-spotlight-widget-result').css('display', 'none');
-				}
-			);
 
 			// The input field
 			let widsearch = $('#wp-spotlight-widget-search input')
@@ -84,19 +76,12 @@
 					$('#wp-spotlight-widget-result').css('display', 'block');
 					let keyword = $('#wp-spotlight-widget-search input').val()
 					
-					console.log(keyword)
 					if (keyword == '') {
-
+						
 						// $('.chatbox-body').removeClass('global-result-loading');
 						// $('#spotlight_popup_search').removeClass('has-global-result');
 
-						$('#wp-spotlight-widget-result').html(
-							'<div class="widgetbox-posts" tab-data="post">\n' +
-							'<div class="post-item keyword-alert">' +
-							'<p>Please type a keyword to search for contents.</p>' +
-							'</div>' +
-							'</div>'
-						)
+						$('#wp-spotlight-widget-result').html('')
 					} else {
 						$.ajax(
 							{

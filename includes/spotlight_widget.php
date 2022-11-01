@@ -44,17 +44,18 @@ class WP_Spotlight_Widget extends WP_Widget {
 		}
 
 		$placeholder = ! empty( $instance['placeholder'] ) ? sanitize_text_field( $instance['placeholder'] ) : '';
-		$cancel      = ! empty( $instance['cancel'] ) ? sanitize_text_field( $instance['placeholder'] ) : __( 'Cancel', 'wp-spotlight' );
 
 		?>
-		<form action="<?php echo home_url( '/' ); ?>" method="get">
+		<form class="wp-spotlight-search-widget" action="<?php echo home_url( '/' ); ?>" method="get">
 			<div id="wp-spotlight-widget-search">
-				<input type="text" name="s" id="search" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php the_search_query(); ?>" />
-				<button id="cancel-spotlight-search"><?php echo esc_attr( $cancel ); ?></button>
+				<div class="widget-search-icon">
+					<span class="dashicons dashicons-search"></span>
+				</div>
+				<input type="search" name="s" id="search" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php the_search_query(); ?>" />
 			</div>
 		</form>
 		<div id="wp-spotlight-widget-result">
-			
+
 		</div>
 		<?php
 		echo $args['after_widget'];
@@ -72,14 +73,14 @@ class WP_Spotlight_Widget extends WP_Widget {
 		$placeholder = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Type to search', 'wp-spotlight' );
 		$cancel      = ! empty( $instance['cancel'] ) ? $instance['cancel'] : esc_html__( 'Cancel', 'wp-spotlight' );
 		?>
-		<p>
+
 		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'wp-spotlight' ); ?></label> 
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" placeholder="<?php echo esc_attr( $placeholder ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
-			<br/>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'placeholder' ) ); ?>" type="text" value="<?php echo esc_attr( $placeholder ); ?>">
-			<br/>
-			<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'cancel' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'cancel' ) ); ?>" type="text" value="<?php echo esc_attr( $cancel ); ?>" placeholder="<?php esc_attr_e( 'Cancel Button', 'wp-spotlight' ); ?>">
-		</p>
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" placeholder="<?php echo esc_attr( $placeholder ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
+		<br/>
+
+		<label for="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>"><?php esc_html_e( 'Placeholder:', 'wp-spotlight' ); ?></label>
+		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'placeholder' ) ); ?>" type="text" value="<?php echo esc_attr( $placeholder ); ?>">
+		<br/>
 		<?php
 	}
 
@@ -97,7 +98,6 @@ class WP_Spotlight_Widget extends WP_Widget {
 		$instance                = [];
 		$instance['title']       = ( ! empty( $new_instance['title'] ) ) ? sanitize_text_field( $new_instance['title'] ) : '';
 		$instance['placeholder'] = ( ! empty( $new_instance['placeholder'] ) ) ? sanitize_text_field( $new_instance['placeholder'] ) : '';
-		$instance['cancel']      = ( ! empty( $new_instance['cancel'] ) ) ? sanitize_text_field( $new_instance['cancel '] ) : '';
 
 		return $instance;
 	}

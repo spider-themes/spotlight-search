@@ -114,7 +114,7 @@
 	}
 }
 
-/* ------- Chatbox Header --------*/
+/* ------- Chat box Header --------*/
 .chatbox-header {
 	background-color: var(--brand_color);
 	padding: 15px 15px 100px;
@@ -380,24 +380,29 @@
 /* ------ Widget CSS ------ */
 #wp-spotlight-widget-search {
 	display: flex;
-	background-color: #fff;
-	padding: 10px 10px;
-	gap: 10px;
-	line-height: 40px;
+	align-items: center;
+	position: relative;
+}
+
+#wp-spotlight-widget-search .widget-search-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-45%);
+    left: 15px;
 }
 
 #wp-spotlight-widget-search input {
-	background: #fff;
-	border: 1px solid #e1e1e1;
-	border-radius: 4px;
-	line-height: 1.2em;
-	width: 90%;
+    background: #fff;
+    line-height: 1.4em;
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    box-shadow: none;
+    border: 1px solid #dedede;
 }
 
-#wp-spotlight-widget-search #cancel-spotlight-search {
-	border: 1px solid #e1e1e1;
-	color: #32373c;
-	background: #fff;
+#wp-spotlight-widget-search input:focus{
+	border: 1px solid rgb(55, 55, 255);
 }
 
 #wp-spotlight-widget-result .chatbox-posts {
@@ -410,6 +415,6 @@
 
 #wp-spotlight-widget-result .chatbox-posts .post-item:hover h2 a,
 #wp-spotlight-widget-result .chatbox-posts .post-item:hover ol li,
-#wp-spotlight-widget-result .chatbox-posts .post-item:hover p{
+#wp-spotlight-widget-result .chatbox-posts .post-item:hover p {
 	color: #fff !important;
 }

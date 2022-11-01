@@ -8,13 +8,13 @@ License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
-WP-Spotlight is a WordPress Search plugin, inspired from Spotlight from Apple computers. WP-Spotlight opens up the search bar, as soon as you type Ctrl + '/' on your keyboard. You can input your keyword and it will start searching right away. The plugin is AJAX powered, that means you will see results without loading the page again.
+WP-Spotlight is a WordPress Search plugin, inspired from Spotlight from Apple computers. WP-Spotlight opens up the search bar, as soon as you type `Ctrl + Shift + Space bar` on your keyboard. You can input your keyword and it will start searching right away. The plugin is AJAX powered, that means you will see results without loading the page again.
 
 Also, we have added an assistant at the right bottom corner of the webpage. Clicking the assistant icon will show up assistant.
 Users will be able to search from the assistant search bar. The other option is to contact to the website admin or any other person whose email can be set from settings options.
 
 ### 🌟 Features ###
-- Pop-up search box on typing Ctrl+ '/'
+- Pop-up search box on typing `Ctrl + Shift + Space bar`
 - AJAX powered popup search box
 - Click bottom icon to open search results
 - Built in AJAX bottom search bar
