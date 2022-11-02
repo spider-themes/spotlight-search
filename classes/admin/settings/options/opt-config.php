@@ -1,24 +1,23 @@
 <?php
 if ( class_exists( 'CSF' ) ) {
 
-	$prefix = 'wp-spotlight_opt';
+	$prefix = 'spotlight_search_opt';
 
 	// Create options
 	CSF::createOptions(
 		$prefix,
 		[
-
 			// framework title
-			'framework_title'         => __( 'WP-Spotlight', 'wp-spotlight' ),
+			'framework_title'         => __( 'Spotlight Search', 'spotlight-search' ),
 			'framework_class'         => '',
 
 			// menu settings
-			'menu_title'              => esc_html__( 'Settings', 'wp-spotlight' ),
-			'menu_slug'               => 'wp-spotlight',
+			'menu_title'              => esc_html__( 'Spotlight Search', 'spotlight-search' ),
+			'menu_slug'               => 'spotlight-search',
 			'menu_type'               => 'submenu',
 			'menu_position'           => null,
 			'menu_hidden'             => false,
-			'menu_parent'             => 'wp-spotlight',
+			'menu_parent'             => 'options-general.php',
 
 			// menu extras
 			'show_bar_menu'           => true,
@@ -67,7 +66,6 @@ if ( class_exists( 'CSF' ) ) {
 
 			// external default values
 			'defaults'                => [],
-
 		]
 	);
 

@@ -320,7 +320,7 @@ if ( ! class_exists( 'CSF' ) ) {
 
     }
 
-    // Include file wp-spotlight
+    // Include file spotlight-search
     public static function include_plugin_file( $file, $load = true ) {
 
       $path     = '';
@@ -359,7 +359,7 @@ if ( ! class_exists( 'CSF' ) ) {
 
     }
 
-    // Is active plugin wp-spotlight
+    // Is active plugin spotlight-search
     public static function is_active_plugin( $file = '' ) {
       return in_array( $file, (array) get_option( 'active_plugins', array() ) );
     }
@@ -377,9 +377,9 @@ if ( ! class_exists( 'CSF' ) ) {
     // Include files
     public static function includes() {
 
-      // Wp-spotlights
+      // Spotlight-searchs
       self::include_plugin_file( 'functions/actions.php'  );
-      self::include_plugin_file( 'functions/wp-spotlights.php'  );
+      self::include_plugin_file( 'functions/spotlight-searchs.php'  );
       self::include_plugin_file( 'functions/sanitize.php' );
       self::include_plugin_file( 'functions/validate.php' );
 

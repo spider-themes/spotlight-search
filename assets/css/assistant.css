@@ -31,13 +31,13 @@
 	-o-border-radius: 50%;
 }
 
-.wp-spotlight-chat {
+.spotlight-search-chat {
 	animation: icon-animation2 .3s ease;
 	width: auto;
 	max-width: 100%;
 }
 
-.wp-spotlight-hide {
+.spotlight-search-hide {
 	display: none;
 	max-width: 25px;
 	animation: icon-animation .3s ease;
@@ -378,20 +378,20 @@
 }
 
 /* ------ Widget CSS ------ */
-#wp-spotlight-widget-search {
+#spotlight-search-widget-search {
 	display: flex;
 	align-items: center;
 	position: relative;
 }
 
-#wp-spotlight-widget-search .widget-search-icon {
+#spotlight-search-widget-search .widget-search-icon {
     position: absolute;
     top: 50%;
     transform: translateY(-45%);
     left: 15px;
 }
 
-#wp-spotlight-widget-search input {
+#spotlight-search-widget-search input {
     background: #fff;
     line-height: 1.4em;
     width: 100%;
@@ -401,20 +401,20 @@
     border: 1px solid #dedede;
 }
 
-#wp-spotlight-widget-search input:focus{
+#spotlight-search-widget-search input:focus{
 	border: 1px solid rgb(55, 55, 255);
 }
 
-#wp-spotlight-widget-result .chatbox-posts {
+#spotlight-search-widget-result .chatbox-posts {
 	margin-top: 0;
 }
 
-#wp-spotlight-widget-result .chatbox-posts .post-item:hover {
+#spotlight-search-widget-result .chatbox-posts .post-item:hover {
 	color: #fff;
 }
 
-#wp-spotlight-widget-result .chatbox-posts .post-item:hover h2 a,
-#wp-spotlight-widget-result .chatbox-posts .post-item:hover ol li,
-#wp-spotlight-widget-result .chatbox-posts .post-item:hover p {
+#spotlight-search-widget-result .chatbox-posts .post-item:hover h2 a,
+#spotlight-search-widget-result .chatbox-posts .post-item:hover ol li,
+#spotlight-search-widget-result .chatbox-posts .post-item:hover p {
 	color: #fff !important;
 }

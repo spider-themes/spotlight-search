@@ -9,13 +9,13 @@
 				}
 			);
 
-			let hsearch = $('#wp-spotlight-chat-search-global')
+			let hsearch = $('#spotlight-search-chat-search-global')
 			let noresult = ''
 
 			hsearch.on(
 				'keyup',
 				function () {
-					let keyword = $('#wp-spotlight-chat-search-global').val()
+					let keyword = $('#spotlight-search-chat-search-global').val()
 					if (keyword == '') {
 
 						$('.chatbox-body').removeClass('global-result-loading');
@@ -31,10 +31,10 @@
 					} else {
 						$.ajax(
 							{
-								url: wp_spotlight_search_global.global_ajax_url,
+								url: spotlight_search_search_global.global_ajax_url,
 								method: 'post',
 								data: {
-									action: 'wp_spotlight_search_result_global',
+									action: 'spotlight_search_search_result_global',
 									keyword: keyword,
 								},
 								beforeSend: function () {
@@ -67,35 +67,35 @@
 			// Widgets.
 
 			// The input field
-			let widsearch = $('#wp-spotlight-widget-search input')
+			let widsearch = $('#spotlight-search-widget-search input')
 
 			// Change on every keypress
 			widsearch.on(
 				'keyup',
 				function () {
-					$('#wp-spotlight-widget-result').css('display', 'block');
-					let keyword = $('#wp-spotlight-widget-search input').val()
+					$('#spotlight-search-widget-result').css('display', 'block');
+					let keyword = $('#spotlight-search-widget-search input').val()
 					
 					if (keyword == '') {
 						
 						// $('.chatbox-body').removeClass('global-result-loading');
 						// $('#spotlight_popup_search').removeClass('has-global-result');
 
-						$('#wp-spotlight-widget-result').html('')
+						$('#spotlight-search-widget-result').html('')
 					} else {
 						$.ajax(
 							{
-								url: wp_spotlight_search_global.global_ajax_url,
+								url: spotlight_search_search_global.global_ajax_url,
 								method: 'post',
 								data: {
-									action: 'wp_spotlight_search_result_global',
+									action: 'spotlight_search_search_result_global',
 									keyword: keyword,
 								},
 								beforeSend: function () {
 
-									$('#wp-spotlight-widget-result').addClass('global-result-loading');
+									$('#spotlight-search-widget-result').addClass('global-result-loading');
 
-									$('#wp-spotlight-widget-result').html(
+									$('#spotlight-search-widget-result').html(
 										'<?xml version="1.0" encoding="utf-8"?>\n' +
 										'<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin: auto; background: none; display: block; shape-rendering: auto;" width="200px" height="200px" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">\n' +
 										'<circle cx="50" cy="50" r="18" stroke-width="2" stroke="#4c4cf1" stroke-dasharray="28.274333882308138 28.274333882308138" fill="none" stroke-linecap="round">\n' +
@@ -105,7 +105,7 @@
 									)
 								},
 								success: function (response) {
-									$('#wp-spotlight-widget-result').html(response)
+									$('#spotlight-search-widget-result').html(response)
 									$('.chatbox-body').removeClass('global-result-loading');
 									$('#spotlight_popup_search').addClass('has-global-result');
 								},

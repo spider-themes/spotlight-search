@@ -3,13 +3,13 @@
 
 	$( document ).ready(
 		function () {
-			let hsearch  = jQuery( '#wp-spotlight-chat-search' )
+			let hsearch  = jQuery( '#spotlight-search-chat-search' )
 			let noresult = ''
 
 			hsearch.on(
 				'keyup',
 				function () {
-					let keyword = jQuery( '#wp-spotlight-chat-search' ).val()
+					let keyword = jQuery( '#spotlight-search-chat-search' ).val()
 					if (keyword == '') {
 						jQuery( '#chatbox-search-results' ).html(
 							'<div class="chatbox-posts" tab-data="post">\n' +
@@ -21,10 +21,10 @@
 					} else {
 						$.ajax(
 							{
-								url: wp_spotlight_search.ajax_url,
+								url: spotlight_search_search.ajax_url,
 								method: 'post',
 								data: {
-									action: 'wp_spotlight_search_result',
+									action: 'spotlight_search_search_result',
 									keyword: keyword,
 								},
 								beforeSend: function () {

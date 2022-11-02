@@ -48,8 +48,8 @@
 
 			function chat_toggle () {
 				const chat_toggle_btn = $( '.chat-toggle a' )
-				const helper_hide     = $( '.wp-spotlight-hide' )
-				const helper_chat     = $( '.wp-spotlight-chat' )
+				const helper_hide     = $( '.spotlight-search-hide' )
+				const helper_chat     = $( '.spotlight-search-chat' )
 				const chatbox         = $( '.chatbox-wrapper' )
 
 				chat_toggle_btn.click(

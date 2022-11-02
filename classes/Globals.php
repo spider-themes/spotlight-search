@@ -22,7 +22,7 @@ class Globals {
 				<div class="chatbox-header">
 					<div class="search-box">
 						<form action="#">
-							<input type="search" name="s" id="wp-spotlight-chat-search-global" placeholder="Search for concepts">
+							<input type="search" name="s" id="spotlight-search-chat-search-global" placeholder="Search for concepts">
 							<span class="cancel-search-box">Cancel</span>
 						</form>
 					</div>

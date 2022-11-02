@@ -4,7 +4,7 @@
  *
  * @return void
  */
-function wp_spotlight_breadcrumb() {
+function spotlight_search_breadcrumb() {
 	?>
 	<ol class="chatbox-breadcrumb <?php echo get_post_type( get_the_ID() ); ?>">
 		<?php
@@ -43,7 +43,7 @@ function wp_spotlight_breadcrumb() {
  * @param $limit_length
  * @param string $suffix
  */
-function wp_spotlight_limit_letter( $string, $limit_length, $suffix = '...' ) {
+function spotlight_search_limit_letter( $string, $limit_length, $suffix = '...' ) {
 	if ( strlen( $string ) > $limit_length ) {
 		echo strip_shortcodes( substr( $string, 0, $limit_length ) . $suffix );
 	} else {
@@ -51,7 +51,7 @@ function wp_spotlight_limit_letter( $string, $limit_length, $suffix = '...' ) {
 	}
 }
 
-function wp_spotlight_post_types() {
+function spotlight_search_post_types() {
 	$post_types = get_post_types(
 		[
 			'public' => true,

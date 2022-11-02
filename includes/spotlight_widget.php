@@ -6,7 +6,7 @@ class spotlight_widget {
 
 	// Register the widget.
 	static function widgets_init() {
-		register_widget( 'WP_Spotlight_Widget' );
+		register_widget( 'SPOTLIGHT_Search_Widget' );
 	}
 }
 
@@ -14,17 +14,17 @@ class spotlight_widget {
 new spotlight_widget();
 
 /**
- * Adds WP_Spotlight_Widget widget.
+ * Adds SPOTLIGHT_Search_Widget widget.
  */
-class WP_Spotlight_Widget extends WP_Widget {
+class SPOTLIGHT_Search_Widget extends WP_Widget {
 
 	/**
 	 * Register widget with WordPress.
 	 */
 	function __construct() {
 		parent::__construct(
-			'wp_spotlight_widget', // Base ID
-			esc_html__( 'WP Spotlight Search', 'wp-spotlight' ), // Name
+			'spotlight_search_widget', // Base ID
+			esc_html__( 'WP Spotlight Search', 'spotlight-search' ), // Name
 		);
 	}
 
@@ -46,15 +46,15 @@ class WP_Spotlight_Widget extends WP_Widget {
 		$placeholder = ! empty( $instance['placeholder'] ) ? sanitize_text_field( $instance['placeholder'] ) : '';
 
 		?>
-		<form class="wp-spotlight-search-widget" action="<?php echo home_url( '/' ); ?>" method="get">
-			<div id="wp-spotlight-widget-search">
+		<form class="spotlight-search-search-widget" action="<?php echo home_url( '/' ); ?>" method="get">
+			<div id="spotlight-search-widget-search">
 				<div class="widget-search-icon">
 					<span class="dashicons dashicons-search"></span>
 				</div>
 				<input type="search" name="s" id="search" placeholder="<?php echo esc_attr( $placeholder ); ?>" value="<?php the_search_query(); ?>" />
 			</div>
 		</form>
-		<div id="wp-spotlight-widget-result">
+		<div id="spotlight-search-widget-result">
 
 		</div>
 		<?php
@@ -69,16 +69,16 @@ class WP_Spotlight_Widget extends WP_Widget {
 	 * @param array $instance Previously saved values from database.
 	 */
 	public function form( $instance ) {
-		$title       = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'wp-spotlight' );
-		$placeholder = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Type to search', 'wp-spotlight' );
-		$cancel      = ! empty( $instance['cancel'] ) ? $instance['cancel'] : esc_html__( 'Cancel', 'wp-spotlight' );
+		$title       = ! empty( $instance['title'] ) ? $instance['title'] : esc_html__( 'New title', 'spotlight-search' );
+		$placeholder = ! empty( $instance['placeholder'] ) ? $instance['placeholder'] : esc_html__( 'Type to search', 'spotlight-search' );
+		$cancel      = ! empty( $instance['cancel'] ) ? $instance['cancel'] : esc_html__( 'Cancel', 'spotlight-search' );
 		?>
 
-		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'wp-spotlight' ); ?></label> 
+		<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_attr_e( 'Title:', 'spotlight-search' ); ?></label> 
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" placeholder="<?php echo esc_attr( $placeholder ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>">
 		<br/>
 
-		<label for="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>"><?php esc_html_e( 'Placeholder:', 'wp-spotlight' ); ?></label>
+		<label for="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>"><?php esc_html_e( 'Placeholder:', 'spotlight-search' ); ?></label>
 		<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'placeholder' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'placeholder' ) ); ?>" type="text" value="<?php echo esc_attr( $placeholder ); ?>">
 		<br/>
 		<?php
@@ -102,4 +102,4 @@ class WP_Spotlight_Widget extends WP_Widget {
 		return $instance;
 	}
 
-} // class WP_Spotlight_Widget
+} // class SPOTLIGHT_Search_Widget
