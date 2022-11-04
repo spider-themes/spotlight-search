@@ -1,5 +1,5 @@
 <?php
-namespace classes;
+namespace SpotlightSearch;
 
 /**
  * Class Globals
@@ -22,8 +22,8 @@ class Globals {
 				<div class="chatbox-header">
 					<div class="search-box">
 						<form action="#">
-							<input type="search" name="s" id="spotlight-search-chat-search-global" placeholder="Search for concepts">
-							<span class="cancel-search-box">Cancel</span>
+							<input type="search" name="s" id="spotlight-search-chat-search-global" placeholder="<?php esc_attr_e( 'Search for content', 'spotlight-search' ); ?>">
+							<span class="cancel-search-box"><?php esc_html_e( 'Cancel', 'spotlight-search' ); ?></span>
 						</form>
 					</div>
 				</div>

@@ -31,7 +31,7 @@ final class Spotlight_Search {
 
 		add_action( 'wp_enqueue_scripts', [ $this, 'load_assets' ], 11 );
 
-		// popup search
+		// Popup search.
 		add_action( 'wp_enqueue_scripts', [ $this, 'popup_search_assets' ] );
 		add_action( 'admin_enqueue_scripts', [ $this, 'popup_search_assets' ] );
 
@@ -40,7 +40,7 @@ final class Spotlight_Search {
 
 
 	/**
-	 *  Initializing spotlight_search class
+	 *  Initializing spotlight_search class.
 	 *
 	 * @return /Spotlight_Search
 	 */
@@ -55,7 +55,8 @@ final class Spotlight_Search {
 	}
 
 	/**
-	 * Defining required plugin constants
+	 * Defining required plugin constants.
+	 * 
 	 * @return void
 	 */
 	public function define_constants() {
@@ -67,7 +68,7 @@ final class Spotlight_Search {
 	}
 
 	/**
-	 * Input plugin version and date time on database
+	 * Input plugin version and date time on database.
 	 *
 	 * @return void
 	 */
@@ -82,7 +83,7 @@ final class Spotlight_Search {
 	}
 
 	/**
-	 * Include important files necessary for this plugin
+	 * Include important files necessary for this plugin.
 	 *
 	 * @return void
 	 */
@@ -94,21 +95,21 @@ final class Spotlight_Search {
 	}
 
 	/**
-	 * Load necessary assets required
+	 * Load necessary assets required.
 	 *
 	 * @return void
 	 */
 	public function load_assets() {
 		wp_enqueue_style( 'dashicons' );
 
-		wp_enqueue_style( 'spotlight-search-assistant', SPOTLIGHT_SEARCH_ASSETS . '/css/assistant.css', SPOTLIGHT_SEARCH_VERSION );
+		wp_enqueue_style( 'spotlight-search-assistant', SPOTLIGHT_SEARCH_ASSETS . '/css/assistant.css', [], SPOTLIGHT_SEARCH_VERSION );
 
-		wp_enqueue_script( 'spotlight-search-assistant', SPOTLIGHT_SEARCH_ASSETS . '/js/assistant.js', [ 'jquery' ], SPOTLIGHT_SEARCH_VERSION );
+		wp_enqueue_script( 'spotlight-search-assistant', SPOTLIGHT_SEARCH_ASSETS . '/js/assistant.js', [ 'jquery' ], SPOTLIGHT_SEARCH_VERSION, true );
 
-		wp_enqueue_script( 'spotlight-search-ajax', SPOTLIGHT_SEARCH_ASSETS . '/js/ajax.js' );
+		wp_enqueue_script( 'spotlight-search-ajax', SPOTLIGHT_SEARCH_ASSETS . '/js/ajax.js', [ 'jquery' ], SPOTLIGHT_SEARCH_VERSION, true );
 
 		$localized_settings = [
-			'ajax_url'           => admin_url( 'admin-ajax.php' ),
+			'ajax_url'               => admin_url( 'admin-ajax.php' ),
 			'spotlight_search_nonce' => wp_create_nonce( 'spotlight_search_nonce' ),
 		];
 
@@ -116,52 +117,65 @@ final class Spotlight_Search {
 	}
 
 	/**
-	 * Load popup search scripts
+	 * Load popup search scripts.
+	 * 
+	 * @return void
 	 */
 	public function popup_search_assets() {
 		$opt             = get_option( 'spotlight_search_opt' );
 		$is_popup_search = $opt['is_popup_search'] ?? true;
 
 		if ( $is_popup_search ) {
-			wp_enqueue_style( 'spotlight-search-popup-search', SPOTLIGHT_SEARCH_ASSETS . '/popup-search/popup-search.css', SPOTLIGHT_SEARCH_VERSION );
+			wp_enqueue_style( 'spotlight-search-popup-search', SPOTLIGHT_SEARCH_ASSETS . '/popup-search/popup-search.css', [], SPOTLIGHT_SEARCH_VERSION );
 			wp_enqueue_script( 'spotlight-search-popup-search', SPOTLIGHT_SEARCH_ASSETS . '/popup-search/popup-search.js', [ 'jquery' ], SPOTLIGHT_SEARCH_VERSION, true );
 		}
-		wp_enqueue_script( 'spotlight-search-ajax-global', SPOTLIGHT_SEARCH_ASSETS . '/js/global-ajax.js', [], true );
+
+		wp_enqueue_script( 'spotlight-search-ajax-global', SPOTLIGHT_SEARCH_ASSETS . '/js/global-ajax.js', [], SPOTLIGHT_SEARCH_VERSION, true );
 
 		$localized_settingsd = [
-			'global_ajax_url'           => admin_url( 'admin-ajax.php' ),
+			'global_ajax_url'               => admin_url( 'admin-ajax.php' ),
 			'spotlight_search_nonce_global' => wp_create_nonce( 'spotlight_search_nonce_global' ),
 		];
 
 		wp_localize_script( 'spotlight-search-ajax-global', 'spotlight_search_search_global', $localized_settingsd );
 	}
 
+	/**
+	 * Initialize the Spotlight Search plugin.
+	 *
+	 * @return void
+	 */
 	public function init_plugin() {
 		if ( is_admin() ) {
-			include SPOTLIGHT_SEARCH_DIR . '/classes/Admin.php';
+			require SPOTLIGHT_SEARCH_DIR . '/classes/Admin.php';
 
-			new \classes\Admin();
+			new \SpotlightSearch\Admin();
 		} else {
-			include SPOTLIGHT_SEARCH_DIR . '/classes/Frontend.php';
+			require SPOTLIGHT_SEARCH_DIR . '/classes/Frontend.php';
 
-			new \classes\Frontend();
+			new \SpotlightSearch\Frontend();
 		}
 
-		include SPOTLIGHT_SEARCH_DIR . '/classes/Globals.php';
-		new \classes\Globals();
+		require SPOTLIGHT_SEARCH_DIR . '/classes/Globals.php';
+		new \SpotlightSearch\Globals();
 	}
 
+	/**
+	 * Search using AJAX.
+	 *
+	 * @return void
+	 */
 	public function search_ajax() {
 		include SPOTLIGHT_SEARCH_DIR . '/classes/frontend/Search.php';
 		include SPOTLIGHT_SEARCH_DIR . '/classes/frontend/Global_Search.php';
 
-		new \classes\frontend\Search();
-		new \classes\frontend\Global_Search();
+		new \SpotlightSearch\Frontend\Search();
+		new \SpotlightSearch\Frontend\Global_Search();
 	}
 }
 
 /**
- * Function to initialize spotlight_search plugin
+ * Function to initialize spotlight_search plugin.
  *
  * @return \Spotlight_Search
  */
@@ -169,5 +183,5 @@ function spotlight_search() {
 	return Spotlight_Search::init();
 }
 
-// Kick off the plugin
+// Kick off the plugin.
 spotlight_search();

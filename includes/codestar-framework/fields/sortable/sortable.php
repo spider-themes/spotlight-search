@@ -63,7 +63,7 @@ if ( ! class_exists( 'CSF_Field_sortable' ) ) {
 
           echo '</div>';
 
-          echo '<div class="csf-sortable-spotlight-search"><i class="fas fa-arrows-alt"></i></div>';
+          echo '<div class="csf-sortable-helper"><i class="fas fa-arrows-alt"></i></div>';
 
         echo '</div>';
 

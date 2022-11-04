@@ -1,15 +1,15 @@
 <?php
-namespace classes\frontend;
+namespace SpotlightSearch\Frontend;
 
 class Global_Search {
 	public function __construct() {
-		// feedback
 		add_action( 'wp_ajax_spotlight_search_search_result_global', [ $this, 'fetch_posts' ] );
 		add_action( 'wp_ajax_nopriv_spotlight_search_search_result_global', [ $this, 'fetch_posts' ] );
 	}
 
 	/**
-	 * Store feedback for an article.
+	 * Fetch search results.
+	 * 
 	 * @return void
 	 */
 	public function fetch_posts() {
@@ -20,8 +20,8 @@ class Global_Search {
 			<?php
 			$posts = new \WP_Query(
 				[
-					'post_type' => 'any',
-					's'         => $_POST['keyword'],
+					'post_type' => $post_types,
+					's'         => sanitize_text_field( $_POST['keyword'] ),
 				]
 			);
 

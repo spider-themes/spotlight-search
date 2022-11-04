@@ -1,5 +1,5 @@
 <?php
-namespace classes;
+namespace SpotlightSearch;
 
 class Admin {
 	public function __construct() {

@@ -41,8 +41,8 @@ if ( ! class_exists( 'CSF_Field_repeater' ) ) {
 
         }
         echo '</div>';
-        echo '<div class="csf-repeater-spotlight-search">';
-        echo '<div class="csf-repeater-spotlight-search-inner">';
+        echo '<div class="csf-repeater-helper">';
+        echo '<div class="csf-repeater-helper-inner">';
         echo '<i class="csf-repeater-sort fas fa-arrows-alt"></i>';
         echo '<i class="csf-repeater-clone far fa-clone"></i>';
         echo '<i class="csf-repeater-remove csf-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'csf' ) .'"></i>';
@@ -69,8 +69,8 @@ if ( ! class_exists( 'CSF_Field_repeater' ) ) {
 
             }
             echo '</div>';
-            echo '<div class="csf-repeater-spotlight-search">';
-            echo '<div class="csf-repeater-spotlight-search-inner">';
+            echo '<div class="csf-repeater-helper">';
+            echo '<div class="csf-repeater-helper-inner">';
             echo '<i class="csf-repeater-sort fas fa-arrows-alt"></i>';
             echo '<i class="csf-repeater-clone far fa-clone"></i>';
             echo '<i class="csf-repeater-remove csf-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'csf' ) .'"></i>';

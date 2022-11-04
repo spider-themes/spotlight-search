@@ -1,5 +1,5 @@
 <?php
-namespace classes\frontend;
+namespace SpotlightSearch\Frontend;
 
 class Search {
 	public function __construct() {
@@ -21,7 +21,7 @@ class Search {
 			$posts = new \WP_Query(
 				[
 					'post_type' => $post_types,
-					's'         => $_POST['keyword'],
+					's'         => sanitize_text_field( $_POST['keyword'] ),
 				]
 			);
 

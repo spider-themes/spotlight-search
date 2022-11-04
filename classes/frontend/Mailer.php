@@ -1,5 +1,5 @@
 <?php
-namespace classes\frontend;
+namespace SpotlightSearch\Frontend;
 
 class Mailer {
 	public function __construct() {
@@ -35,7 +35,7 @@ class Mailer {
 				wp_send_json_error( __( 'Please provide the message details.', 'spotlight-search' ) );
 			}
 
-			$wp_email = 'wordpress@' . preg_replace( '#^www\.#', '', strtolower( $_SERVER['SERVER_NAME'] ) );
+			$wp_email = 'wordpress@' . preg_replace( '#^www\.#', '', strtolower( sanitize_text_field( $_SERVER['SERVER_NAME'] ) ) );
 			$blogname = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
 
 			$email_to = $admin_email;

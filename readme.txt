@@ -1,14 +1,15 @@
 ===  Spotlight Search - Search Assistant Plugin for WordPress ===
 Contributors: spiderdevs,arafatjamil01, mdjwel, delweratjk
-Version: 1.0.0
+Tags: search, ajax, spotlight, assistant, helper, chatbox, contact, email
 Requires at least: 5.0
 Tested up to: 6.1
+Stable tag: 1.0.0
 Requires PHP: 7.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 == Description ==
-SPOTLIGHT-Search is a WordPress Search plugin, inspired from Spotlight from Apple computers. SPOTLIGHT-Search opens up the search bar, as soon as you type `Ctrl + Shift + Space bar` on your keyboard. For Mac type `Command + Shift + Space bar` You can input your keyword and it will start searching right away. The plugin is AJAX powered, that means you will see results without loading the page again.
+Spotlight-Search is a WordPress Search plugin, inspired from Spotlight from Apple computers. SPOTLIGHT-Search opens up the search bar, as soon as you type `Ctrl + Shift + Space bar` on your keyboard. For Mac type `Command + Shift + Space bar` You can input your keyword and it will start searching right away. The plugin is AJAX powered, that means you will see results without loading the page again.
 
 Also, we have added an assistant at the right bottom corner of the webpage. Clicking the assistant icon will show up assistant.
 Users will be able to search from the assistant search bar. The other option is to contact to the website admin or any other person whose email can be set from settings options.

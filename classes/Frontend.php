@@ -1,5 +1,5 @@
 <?php
-namespace classes;
+namespace SpotlightSearch;
 
 class Frontend {
 	public function __construct() {
@@ -9,7 +9,7 @@ class Frontend {
 
 	public function contact_support() {
 		include SPOTLIGHT_SEARCH_DIR . '/classes/frontend/Mailer.php';
-		new \classes\frontend\Mailer();
+		new \SpotlightSearch\Frontend\Mailer();
 	}
 
 	public function render_assistant() {

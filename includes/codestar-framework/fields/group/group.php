@@ -46,7 +46,7 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
 
         echo '<div class="csf-cloneable-item csf-cloneable-hidden" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
 
-          echo '<div class="csf-cloneable-spotlight-search">';
+          echo '<div class="csf-cloneable-helper">';
           echo '<i class="csf-cloneable-sort fas fa-arrows-alt"></i>';
           echo '<i class="csf-cloneable-clone far fa-clone"></i>';
           echo '<i class="csf-cloneable-remove csf-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'csf' ) .'"></i>';
@@ -101,7 +101,7 @@ if ( ! class_exists( 'CSF_Field_group' ) ) {
 
             echo '<div class="csf-cloneable-item">';
 
-              echo '<div class="csf-cloneable-spotlight-search">';
+              echo '<div class="csf-cloneable-helper">';
               echo '<i class="csf-cloneable-sort fas fa-arrows-alt"></i>';
               echo '<i class="csf-cloneable-clone far fa-clone"></i>';
               echo '<i class="csf-cloneable-remove csf-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'csf' ) .'"></i>';
